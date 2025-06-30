@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainha dos Slots</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #3b0066, #8e2de2);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      margin: 20px 0;
+      font-size: 2em;
+      text-shadow: 0 0 10px #000;
+    }.btn-atualizar {
+  background: #fff;
+  color: #3b0066;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.jogos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.jogo-card {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.jogo-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.jogo-card h3 {
+  font-size: 1.1em;
+  margin: 0 0 10px;
+}
+
+.jogo-card p {
+  margin: 4px 0;
+  font-size: 0.95em;
+}
+
+.bet-exemplo {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #ddd;
+}
+
+a {
+  text-decoration: none;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Rainha dos Slots 👑</h1>
+  <button class="btn-atualizar" onclick="atualizarTodos()">🔁 Atualizar Agora</button>  <div class="jogos-grid" id="grid-jogos">
+    <!-- Os cartões de jogos serão inseridos aqui via JavaScript -->
+  </div>  <div style="margin-top: 40px; text-align: center;">
+    <h2>🔗 Links do Dia</h2>
+    <p><a id="link1" href="#" target="_blank" style="color: #ffccff;">Link 1</a></p>
+    <p><a id="link2" href="#" target="_blank" style="color: #ffccff;">Link 2</a></p>
+  </div>  <script>
+    const jogos = [
+      { nome: "Fortune Tiger", img: "https://i.postimg.cc/QdM9sy8W/images-20.jpg", bet: "R$ 1,00 - R$ 2,00" },
+      { nome: "Fortune Rabbit", img: "https://i.postimg.cc/prXx831f/images-21.jpg", bet: "R$ 2,00 - R$ 4,00" },
+      { nome: "Fortune Ox", img: "https://i.postimg.cc/yN4HnDbY/fortune-ox.png", bet: "R$ 1,50 - R$ 3,00" },
+      { nome: "Fortune Mouse", img: "https://i.postimg.cc/QCyL7C7D/images-22.jpg", bet: "R$ 1,00 - R$ 2,50" },
+      { nome: "Fortune Dragon", img: "https://i.postimg.cc/JnsSLmgd/images-23.jpg", bet: "R$ 2,00 - R$ 5,00" },
+      { nome: "Fortune Snake", img: "https://i.postimg.cc/gjNhHFcm/images-24.jpg", bet: "R$ 1,20 - R$ 3,50" },
+      { nome: "Wild Ape 3258", img: "https://i.postimg.cc/dtNd7YS9/th.jpg", bet: "R$ 1,00 - R$ 3,00" },
+      { nome: "Pinata Wins", img: "https://i.imgur.com/YanKOD1.jpg", bet: "R$ 0,80 - R$ 2,00" },
+      { nome: "Anubis Wrath", img: "https://i.imgur.com/E6lTj2P.jpg", bet: "R$ 1,00 - R$ 2,50" },
+      { nome: "Mystic Potion", img: "https://i.imgur.com/TOxKvcU.jpg", bet: "R$ 1,50 - R$ 3,00" },
+    ];
+
+    function gerarNumero(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function atualizarTodos() {
+      const container = document.getElementById("grid-jogos");
+      container.innerHTML = "";
+
+      jogos.forEach((jogo) => {
+        const dist = gerarNumero(80, 95);
+        const min = gerarNumero(20, 40);
+        const padrao = gerarNumero(40, 70);
+        const max = gerarNumero(70, 95);
+
+        const card = document.createElement("div");
+        card.className = "jogo-card";
+
+        card.innerHTML = `
+          <img src="${jogo.img}" alt="${jogo.nome}" />
+          <h3>${jogo.nome}</h3>
+          <p>Distribuição: ${dist}%</p>
+          <p>Mínima: ${min}%</p>
+          <p>Padrão: ${padrao}%</p>
+          <p>Máxima: ${max}%</p>
+          <p class="bet-exemplo">Bet: ${jogo.bet}</p>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Atualiza ao abrir
+    atualizarTodos();
+    // Atualiza a cada 5 minutos
+    setInterval(atualizarTodos, 300000);
+
+    // LINKS QUE VOCÊ PODE EDITAR TODO DIA:
+    document.getElementById("link1").href = "https://t.me/slotspagntes";
+    document.getElementById("link1").innerText = "Acesse nosso grupo do Telegram";
+
+    document.getElementById("link2").href = "https://crownspg.com/?id=425029803";
+    document.getElementById("link2").innerText = "Aposte aqui 🔥";
+  </script></body>
+</html>
